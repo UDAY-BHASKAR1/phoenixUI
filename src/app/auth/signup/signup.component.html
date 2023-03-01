@@ -1,1 +1,113 @@
-<p>signup works!</p>
+<div>
+  <div
+    style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 98vh;
+    "
+  >
+    <div class="signupContainer">
+      <h1 style="margin-top: 0px; text-align: center; margin-bottom: 15px">
+        Create Your Account
+      </h1>
+      <div [formGroup]="signupForm">
+        <div class="for-margin">
+          <label for="text" class="labeltext">First Name</label> <br />
+          <input
+            type="text"
+            formControlName="firstName"
+            pInputText
+            placeholder="Enter your firstname"
+            class="for-text"
+            maxlength="30"
+          />
+          <br />
+          <label for="text" class="labeltext">Last Name</label> <br />
+          <input
+            type="text"
+            formControlName="lastName"
+            pInputText
+            class="for-text"
+            placeholder="Enter your lastname"
+            maxlength="30"
+          />
+          <br />
+          <label for="text" class="labeltext">User Name</label> <br />
+          <input
+            type="text"
+            formControlName="userName"
+            pInputText
+            placeholder="Enter your username"
+            class="for-text"
+            maxlength="20"
+          />
+          <br />
+          <label for="number" class="labeltext">Mobile Number</label> <br />
+          <input
+            type="number"
+            formControlName="mobileNumber"
+            pInputText
+            placeholder="Enter your mobilenumber"
+            class="for-text"
+            maxlength="10"
+            minlength="10"
+          />
+          <br />
+
+          <label for="email" class="labeltext email">Email</label> <br />
+          <input
+            type="email"
+            formControlName="email"
+            placeholder="Enter your email"
+            pInputText
+            class="for-text"
+            maxlength="30"
+          />
+          <br />
+          <label for="p-password" class="labeltext">Password</label> <br />
+          <p-password
+            [toggleMask]="true"
+            [feedback]="false"
+            placeholder="Enter your password"
+            class="for-password"
+            maxlength="20"
+            minlength="8"
+            formControlName="password"
+          ></p-password>
+          <br />
+          <label for="p-password" class="labeltext confirmPassword"
+            >Confirm Password</label
+          >
+          <br />
+          <p-password
+            [toggleMask]="true"
+            [feedback]="false"
+            class="for-password"
+            placeholder="Enter your confirm password"
+            maxlength="20"
+            formControlName="confirmPassword"
+          ></p-password>
+          <br /><br />
+          <div style="text-align: center">
+            <button
+              pButton
+              type="submit"
+              label="Create Account"
+              (click)="onsignUp()"
+              class="p-button-secondary for-button"
+            ></button>
+          </div>
+          <p style="text-align: center; margin-bottom: 0px; font-size: 18px">
+            Already have an Account!
+            <a
+              [routerLink]="['/auth/login']"
+              style="text-decoration: none; font-size: 18px"
+              >signin</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

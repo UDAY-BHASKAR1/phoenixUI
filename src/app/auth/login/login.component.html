@@ -1,1 +1,59 @@
-<p>login works!...</p>
+<div>
+  <div
+    style="
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 98vh;
+    "
+  >
+    <div class="signupContainer">
+      <h1 style="margin-top: 0px; text-align: center">
+        Login with Your Account
+      </h1>
+      <div [formGroup]="loginForm">
+        <div class="for-margin">
+          <label for="email" class="labeltext email">Email</label> <br />
+          <input
+            type="email"
+            formControlName="email"
+            pInputText
+            placeholder="Enter your email"
+            class="for-text"
+            maxlength="30"
+          />
+          <br />
+          <label for="p-password" class="labeltext">Password</label> <br />
+          <p-password
+            [toggleMask]="true"
+            [feedback]="false"
+            class="for-password"
+            maxlength="20"
+            placeholder="Enter your password"
+            minlength="8"
+            formControlName="password"
+          ></p-password>
+          <br />
+          <br />
+          <div style="text-align: center">
+            <button
+              pButton
+              type="submit"
+              label="LOGIN"
+              (click)="signIN()"
+              class="p-button-secondary for-button"
+            ></button>
+          </div>
+          <p style="text-align: center; margin-bottom: 0px; font-size: 18px">
+            Didn't have an Account!
+            <a
+              [routerLink]="['/auth/signup']"
+              style="text-decoration: none; font-size: 18px"
+              >Create Account</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
