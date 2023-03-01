@@ -1,0 +1,113 @@
+<div>
+  <div class="header_container">
+    <div>
+      <header>
+        <nav class="navigat" style="position: fixed; z-index: 3">
+          <div
+            class="headerNaviagtion"
+            style="display: flex; align-items: center"
+          >
+            <div style="width: 50%; text-align: center">
+              <h2
+                style="color: rgb(255, 255, 255); font-size: 30px; margin: 0px"
+              >
+                PHOENIX
+              </h2>
+            </div>
+
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+              "
+            >
+              <span class="headerIcons"
+                ><i
+                  (click)="postContentClick()"
+                  class="pi pi-plus iconStyle"
+                ></i
+              ></span>
+              <span class="headerIcons"
+                ><i class="pi pi-home iconStyle"></i
+              ></span>
+              <span class="headerIcons"
+                ><i class="pi pi-users iconStyle"></i
+              ></span>
+              <span class="headerIcons"
+                ><i class="pi pi-th-large iconStyle"></i
+              ></span>
+            </div>
+          </div>
+        </nav>
+      </header>
+    </div>
+  </div>
+</div>
+
+<!-- ADD POST -->
+<div>
+  <p-dialog
+    [header]="'POST'"
+    [modal]="true"
+    [(visible)]="postContentModelAction"
+    [style]="{ width: '900px' }"
+    [draggable]="false"
+    styleClass="active"
+    [contentStyle]="{
+      'overflow-y': 'visible',
+      'overflow-x': 'visible'
+    }"
+  >
+    <div class="model_card_body">
+      <div>
+        <br />
+        <br />
+        <div class="grid">
+          <div class="col-12 modelTextArea">
+            <textarea
+              [rows]="5"
+              [cols]="30"
+              maxlength="250"
+              (keyup)="contentCount()"
+              pInputTextarea
+              [(ngModel)]="postContentText"
+              placeholder="Enter Text want to be Posted"
+              [autoResize]="true"
+            ></textarea>
+            <!-- <p class="info-msgs">
+              <i class="pi pi-info-circle"></i> &nbsp;
+              <span style="position: relative; top: -2px">
+                Left {{ bandDescriptionCount }} Characters
+              </span>
+            </p> -->
+          </div>
+
+          <div class="col-8"></div>
+          <div class="col-2 text-center">
+            <br />
+            <span class="cancelButton">
+              <p-button
+                (click)="postContentModalClose()"
+                label="Cancel"
+                class="modelCancelButton"
+              ></p-button>
+            </span>
+          </div>
+          <div class="col-2">
+            <br />
+            <div style="max-width: 100px">
+              <p-button
+                label="Update"
+                (click)="postContentPost()"
+                [type]="'submit'"
+                [loading]="postLoader"
+                class="modelSaveButton"
+              ></p-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </p-dialog>
+</div>
