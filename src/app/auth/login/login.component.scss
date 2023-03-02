@@ -1,37 +1,43 @@
 .signupContainer {
-    background-color: rgb(192, 188, 188);
-    min-width: 560px;
-    min-height: fit-content;
-    border-radius: 10px;
-    padding:50px;
+  background-color: rgb(192, 188, 188);
+  min-width: 560px;
+  min-height: fit-content;
+  border-radius: 10px;
+  padding: 50px;
 }
 
 .labeltext {
-    font-size: 18px;
-    padding-left: 5px;
+  font-size: 18px;
+  padding-left: 5px;
 }
 
 ::ng-deep {
-    .p-inputtext {
-        font-size: 18px;
-        color: black;
-        margin-bottom: 15px;
-        width: 450px;
-        border: 1px solid #656565;
-    }
+  .p-inputtext {
+    font-size: 18px;
+    color: black;
+    margin-bottom: 15px;
+    width: 450px;
+    border: 1px solid #656565;
+  }
 
-    .p-inputtext:enabled:hover {
-        border-color: #656565;
-    }
+  .p-inputtext:enabled:hover {
+    border-color: #656565;
+  }
 
-    .p-inputtext:enabled:focus {
-        outline: 0 none;
-        outline-offset: 0;
-        box-shadow: none !important;
-        border-color: #656565;
-    }
+  .p-inputtext:enabled:focus {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: none !important;
+    border-color: #656565;
+  }
 
-    .p-inputtext.ng-dirty.ng-invalid {
-        border-color: #656565;
-    }
+  .p-inputtext.ng-dirty.ng-invalid {
+    border-color: #656565;
+  }
+  p-password.ng-invalid.ng-dirty > .p-password > .p-inputtext {
+    border-color: #656565;
+  }
+  .p-button.p-button-secondary:enabled:focus {
+    box-shadow: none;
+  }
 }
