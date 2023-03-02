@@ -37,13 +37,13 @@
         padding-left: 1.5rem;
         width: 100%;
         padding: 0.5rem 0.5rem;
-        border: 0.6px solid rgba(240, 240, 240, 0.3);
+        border: 0.6px solid rgba(59, 55, 55, 0.3);
         transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
 
         appearance: none;
         border-radius: 3px;
-        background: #0f0f0f;
-        color: #ffffff;
+        background: #ffffff;
+        color:black;
     }
 
     .p-inputtext {
@@ -55,8 +55,8 @@
         transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
         appearance: none;
         border-radius: 3px;
-        background: #0f0f0f;
-        color: #ffffff;
+        background: #ffffff;
+        color:black;
     }
 
     .p-inputtext:enabled:hover {
