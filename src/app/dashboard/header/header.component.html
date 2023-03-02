@@ -5,9 +5,9 @@
         <nav class="navigat" style="position: fixed; z-index: 3">
           <div
             class="headerNaviagtion"
-            style="display: flex; align-items: center"
+            style="display: flex; align-items: center; justify-content: center"
           >
-            <div style="width: 50%; text-align: center">
+            <div style="text-align: center; margin-right: 250px">
               <h2
                 style="
                   color: rgb(255, 255, 255);
@@ -33,13 +33,13 @@
                   class="pi pi-plus iconStyle"
                 ></i
               ></span>
-              <span class="headerIcons"
+              <span class="headerIcons" [routerLink]="['/dashboard/home']"
                 ><i class="pi pi-home iconStyle"></i
               ></span>
-              <span class="headerIcons" routerLink="/users"
+              <span class="headerIcons" [routerLink]="['/dashboard/users']"
                 ><i class="pi pi-users iconStyle"></i
               ></span>
-              <span class="headerIcons"
+              <span class="headerIcons" [routerLink]="['/dashboard/profile']"
                 ><i class="pi pi-th-large iconStyle"></i
               ></span>
             </div>
