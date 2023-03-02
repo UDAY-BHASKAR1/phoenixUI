@@ -1,0 +1,64 @@
+.user-card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // width: 30rem;
+    background-color: gray;
+}
+
+.profile-name{
+    padding-left: 30px;
+    padding-right: 200px;
+}
+@media screen and (max-width: 500px) {
+    .profile-name {
+       padding-right: 40px;
+    }
+  }
+
+.profile-image{
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+    margin-top: 40px;
+}
+.user-font1{
+    font-size: 1.6em;
+    font-weight: 700;
+    margin-top: 33px;
+    font-family: 'Poppins', sans-serif;
+}
+.user-font2{
+    font-size: 1.3em;
+    margin-top: -28px;
+    font-family: 'Poppins', sans-serif;
+    color: #8b8888;
+}
+
+.profile-username{
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 5px;
+    padding: 16px;
+    background-color: #f2f2f2;
+    color: #333;
+    font-size: 16px;
+    max-width: 100%;
+    margin: 20px;
+  }
+  
+  .button{
+    margin-top: 40px;
+  }
+ 
+  @media screen and (max-width: 600px) {
+    .button {
+       margin-left: 5px;
+    }
+  }
+  
+  

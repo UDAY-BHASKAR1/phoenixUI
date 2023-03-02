@@ -9,8 +9,9 @@ import { SharedModule } from "primeng/api";
 import { PrimengModule } from "../shared/primeNG/primeng/primeng.module";
 import { FormsModule } from "@angular/forms";
 import { ReactiveFormsModule } from "@angular/forms";
+import { UsersComponent } from './users/users.component';
 @NgModule({
-  declarations: [ProfileComponent, DashboardComponent, HeaderComponent],
+  declarations: [ProfileComponent, DashboardComponent, HeaderComponent, UsersComponent],
   imports: [
     CommonModule,
     DashboardRoutingModule,
