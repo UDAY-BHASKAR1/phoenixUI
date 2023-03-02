@@ -27,45 +27,85 @@
   cursor: pointer;
 }
 
-
 ::ng-deep {
+  .modelTextArea .p-inputtext {
+    height: -moz-fit-content !important;
+    height: fit-content !important;
+    padding-left: 1.5rem;
+    width: 100%;
+    padding: 0.5rem 0.5rem;
+    font-size: 27px;
+    border: none;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s,
+      box-shadow 0.2s;
+    appearance: none;
+    border-radius: 3px;
+    background: #ffffff;
+    color: black;
+  }
 
+  .p-inputtext:enabled:hover {
+    border-color: transparent;
+  }
 
-    .modelTextArea .p-inputtext {
-        height: -moz-fit-content !important;
-        height: fit-content !important;
-        padding-left: 1.5rem;
-        width: 100%;
-        padding: 0.5rem 0.5rem;
-        border: 0.6px solid rgba(59, 55, 55, 0.3);
-        transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
-
-        appearance: none;
-        border-radius: 3px;
-        background: #ffffff;
-        color:black;
+  .p-inputtext:enabled:focus {
+    box-shadow: none;
+    border-color: transparent;
+  }
+  .cancelButton {
+    .p-button {
+      color: red;
+      border: none;
+      background-color: transparent;
+      font-size: 25px;
     }
-
-    .p-inputtext {
-        height: fit-content !important;
-        padding-left: 1.5rem;
-        width: 100%;
-        padding: 0.5rem 0.5rem;
-        border: 0.6px solid rgba(240, 240, 240, 0.3);
-        transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
-        appearance: none;
-        border-radius: 3px;
-        background: #ffffff;
-        color:black;
+    .p-button:enabled:hover {
+      background: transparent;
+      color: #ff0000;
+      border-color: none;
     }
-
-    .p-inputtext:enabled:hover {
-        border-color: rgba(240, 240, 240, 0.3);
+    .p-button:focus {
+      box-shadow: none !important;
     }
-
-    .p-inputtext:enabled:focus {
-
-        box-shadow: none;
-        border-color: rgba(240, 240, 240, 0.3);
-    }
+  }
+     .postButton {
+       .p-button {
+        min-width: 150px;
+          height: 50px;
+          letter-spacing: 2px;
+          color: rgb(254, 254, 254);
+          border: none;
+          background-color: rgb(88, 87, 87);
+          font-size: 25px;
+          border-radius: 4px;
+       }
+  
+       .p-button:enabled:hover {
+         background: rgb(88, 87, 87);
+         color: #ffffff;
+         border-color: none;
+       }
+  
+       .p-button:focus {
+         box-shadow: none !important;
+       }
+     }
+  .p-dialog .p-dialog-header .p-dialog-title {
+    font-weight: 700;
+    font-size: 35px;
+  }
+  .pi {
+    font-size: 25px;
+    font-weight: 700;
+  }
+  .p-dialog .p-dialog-header .p-dialog-header-icon:enabled:hover {
+    color: black;
+    border-color: transparent;
+    background: transparent;
+  }
+  .p-dialog .p-dialog-header .p-dialog-header-icon:focus {
+    outline: 0 none;
+    outline-offset: 0;
+    box-shadow: none;
+  }
 }

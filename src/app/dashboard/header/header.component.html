@@ -9,7 +9,12 @@
           >
             <div style="width: 50%; text-align: center">
               <h2
-                style="color: rgb(255, 255, 255); font-size: 33px; margin: 0px; font-family: 'Poppins', sans-serif;" 
+                style="
+                  color: rgb(255, 255, 255);
+                  font-size: 33px;
+                  margin: 0px;
+                  font-family: 'Poppins', sans-serif;
+                "
               >
                 PHOENIX
               </h2>
@@ -31,7 +36,7 @@
               <span class="headerIcons"
                 ><i class="pi pi-home iconStyle"></i
               ></span>
-              <span class="headerIcons" routerLink="/users" 
+              <span class="headerIcons" routerLink="/users"
                 ><i class="pi pi-users iconStyle"></i
               ></span>
               <span class="headerIcons"
@@ -61,18 +66,16 @@
   >
     <div class="model_card_body">
       <div>
-        <br />
-        <br />
         <div class="grid">
           <div class="col-12 modelTextArea">
             <textarea
-              [rows]="5"
+              [rows]="6"
               [cols]="30"
               maxlength="250"
               (keyup)="contentCount()"
               pInputTextarea
               [(ngModel)]="postContentText"
-              placeholder="Enter Text want to be Posted"
+              placeholder="start typing..."
               [autoResize]="true"
             ></textarea>
             <!-- <p class="info-msgs">
@@ -83,9 +86,8 @@
             </p> -->
           </div>
 
-          <div style="display: flex">
-            <div class="col-2 text-center">
-              <br />
+          <div style="display: flex; justify-content: space-between">
+            <div class="text-center">
               <span class="cancelButton">
                 <p-button
                   (click)="postContentModalClose()"
@@ -94,17 +96,17 @@
                 ></p-button>
               </span>
             </div>
-            <div class="col-2">
-              <br />
-              <div style="max-width: 100px">
-                <p-button
-                  label="Update"
+
+            <div style="max-width: 180px">
+              <span class="postButton"
+                ><p-button
+                  label="Post"
                   (click)="postContentPost()"
                   [type]="'submit'"
                   [loading]="postLoader"
                   class="modelSaveButton"
-                ></p-button>
-              </div>
+                ></p-button
+              ></span>
             </div>
           </div>
         </div>
