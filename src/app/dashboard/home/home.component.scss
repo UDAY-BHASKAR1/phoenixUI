@@ -1,10 +1,70 @@
 .card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     border-radius: 5px;
-    padding: 16px;
+    padding: 30px;
     background-color: #f2f2f2;
     color: #333;
     font-size: 16px;
     max-width: 100%;
     margin: 20px;
   }
+
+  // .profile{
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center
+  // }
+
+  // .like-comment{
+  //   display: flex; 
+  //   justify-content: space-between; 
+  //   align-items: center
+  // }
+  .profile-img{
+    width: 60px;
+    height: 60px;
+    border-radius: 40px;
+  }
+
+  .name{
+    font-size: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    margin-top: -9px;
+  }
+
+  .name span{
+    font-size: 25px;
+    font-weight: 100;
+  }
+
+  .time{
+    margin-top: -20px;
+    font-size: 22px;
+    font-weight: 100;
+    font-family: 'Poppins', sans-serif;
+    color: #747373;
+  }
+  .caption{
+    font-size: 30px;
+    margin-top: -30px;
+    font-family: 'Poppins', sans-serif;
+    margin-left: 10px;
+  }
+
+  div span{
+    font-size: 25px;
+    font-weight: bold;
+    margin-left:10px ;
+  }
+
+  .profile-view{
+    border-radius: 40px;
+    height: 35px;
+    border: none;
+  }
+
+  .profile-view:hover{
+     background-color:#747373 ;
+  }
+  
