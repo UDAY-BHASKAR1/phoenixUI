@@ -34,17 +34,26 @@ export class SignupComponent implements OnInit {
   onsignUp() {
     var data = this.signupForm.value;
     console.log(data);
-    var dummyData = {
-      firstName: 'test',
-      lastName: 'test',
-      userName: 'aa',
-      mobileNumber: '222',
-      email: 'test@gmail.com',
-      password: 'Test@1234',
+    var formData = {
+      firstName: data.firstName,
+      lastName: data.lastName,
+      userName: data.userName,
+      mobileNumber: data.userName,
+      email: data.email,
+      password: data.password,
     };
 
-    this.auth.signup(dummyData).subscribe((res) => {
-      console.log(res, 'signup');
+    let object = {
+      firstName: 'Sanjay',
+      lastName: 'Shaik',
+      userName: 'ahs',
+      mobileNumber: '123',
+      email: '123',
+      password: '123',
+    };
+
+    this.auth.signup(formData).subscribe((res) => {
+      alert('signup');
     });
   }
 }

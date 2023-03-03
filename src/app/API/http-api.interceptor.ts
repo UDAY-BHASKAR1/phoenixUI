@@ -18,6 +18,9 @@ export class HttpApiInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
     // const token = this.auth.getToken();
+    const token =
+      'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QGdtYWlsLmNvb…jAxfQ.vcsOWPmC1rlvgX-adC7kz5Rn7eIMKRsicRm8V1ynomI';
+
     let headers = request.headers;
     // .set('client-id', environment.CLIENT_ID)
     // .set('client-secret', environment.cLIENT_SECRET)
