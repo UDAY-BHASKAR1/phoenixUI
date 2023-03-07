@@ -38,7 +38,7 @@ export class SignupComponent implements OnInit {
       firstName: data.firstName,
       lastName: data.lastName,
       userName: data.userName,
-      mobileNumber: data.userName,
+      mobileNumber: data.mobileNumber,
       email: data.email,
       password: data.password,
     };
@@ -54,6 +54,7 @@ export class SignupComponent implements OnInit {
 
     this.auth.signup(formData).subscribe((res) => {
       alert('signup');
+      console.log(res);
     });
   }
 }

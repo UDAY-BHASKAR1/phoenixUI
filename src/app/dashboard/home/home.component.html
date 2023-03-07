@@ -1,35 +1,57 @@
-<div class="card">
-  <div class="d-flex bd-highlight mb-3">
-    <div class="p-2 bd-highlight">
-      <img
-        class="profile-img"
-        src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
-        alt=""
-      />
+<div *ngFor="let item of data">
+  <br />
+  <div class="card">
+    <div class="d-flex bd-highlight mb-3">
+      <div class="p-2 bd-highlight">
+        <img
+          class="profile-img"
+          [src]="
+            item.profilePic ? item.profilePic : '../../../assets/default.png'
+          "
+        />
+      </div>
+      <div class="p-2 bd-highlight">
+        <p class="name">
+          {{ item.firstName }} {{ item.lastName
+          }}<span *ngIf="item.sharedPost == true">shared a post</span>
+        </p>
+        <p class="time">{{ item.time }}</p>
+      </div>
+      <div class="ms-auto p-2 bd-highlight">
+        <button class="profile-view"><i class="pi pi-ellipsis-h"></i></button>
+      </div>
     </div>
-    <div class="p-2 bd-highlight">
-      <p class="name">udaybhaskar <span>shared a post</span></p>
-      <p class="time">a year ago</p>
+    <div>
+      <p class="caption">{{ item.contentText }}</p>
     </div>
-    <div class="ms-auto p-2 bd-highlight">
-      <button class="profile-view"><i class="pi pi-ellipsis-h"></i></button>
+    <div class="like-comment d-flex justify-content-between">
+      <div>
+        <span>{{ item.likeCount }} likes</span>
+      </div>
+      <div>
+        <span>{{ item.comments.length }} comments</span>
+      </div>
     </div>
   </div>
-  <div>
-    <p class="caption">is this still working . . .</p>
-  </div>
-  <div class="like-comment d-flex justify-content-between">
-    <div><span>2 likes</span></div>
-    <div><span>0 comments</span></div>
-  </div>
-</div>
 
-<div class="card ">
-  <div class="d-flex justify-content-around">
-   <div>
-    <i class="pi pi-thumbs-up-fill"></i><span>like</span>
-   </div>
-   <div><i class="pi pi-comments"></i><span>comment</span></div>
-   <div><i class="pi pi-share-alt"></i><span>share</span></div>
+  <div class="card">
+    <div class="d-flex justify-content-around">
+      <div>
+        <i
+          style="cursor: pointer"
+          [ngClass]="item.like == true ? 'likeIcon' : ''"
+          class="pi pi-thumbs-up-fill"
+        ></i
+        ><span>like</span>
+      </div>
+      <div>
+        <i style="cursor: pointer" class="pi pi-comments"></i
+        ><span>comment</span>
+      </div>
+      <div>
+        <i style="cursor: pointer" class="pi pi-share-alt"></i
+        ><span>share</span>
+      </div>
+    </div>
   </div>
 </div>

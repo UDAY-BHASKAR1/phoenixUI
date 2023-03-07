@@ -1,1 +1,125 @@
-<p>profile works!</p>
+<br />
+<div>
+  <div class="d-flex" style="padding: 20px 20px 20px 40px">
+    <div class="col-3" style="text-align: center">
+      <img
+        style="border-radius: 50%; cursor: pointer"
+        width="150px"
+        height="150px"
+        [src]="
+          userData.profilePic
+            ? userData.profilePic
+            : '../../../assets/default.png'
+        "
+      />
+      <br />
+      <span> {{ userData.firstName }} {{ userData.lastName }}</span>
+      <br />
+      <p
+        style="
+          font-size: 23px;
+          font-family: emoji;
+          letter-spacing: 1px;
+          padding-bottom: 0px;
+          margin: 0px;
+        "
+      >
+        {{ userData.userName }}
+      </p>
+    </div>
+
+    <div
+      class="col-9"
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      "
+    >
+      <div class="col-3">
+        <span>{{ userData.postsCount }}</span> <br />
+        <span>posts</span>
+      </div>
+      <div class="col-3">
+        <span>{{ userData.followersCount }}</span> <br />
+        <span>Followers</span>
+      </div>
+      <div class="col-3">
+        <span>{{ userData.followingCount }}</span> <br />
+        <span>Following</span>
+      </div>
+    </div>
+  </div>
+</div>
+<h1 class="postHeading">POSTS</h1>
+<div>
+  <div *ngFor="let item of postsData">
+    <div class="card">
+      <div class="d-flex bd-highlight mb-3">
+        <div class="p-2 bd-highlight">
+          <img
+            class="profile-img cursor"
+            [src]="
+              item.profilePic ? item.profilePic : '../../../assets/default.png'
+            "
+          />
+        </div>
+        <div class="p-2 bd-highlight">
+          <p class="name cursor">
+            {{ item.firstName }} {{ item.lastName
+            }}<span *ngIf="item.sharedPost == true">shared this post</span>
+          </p>
+          <p class="time">{{ item.time }}</p>
+        </div>
+        <div class="ms-auto p-2 bd-highlight">
+          <button class="profile-view"><i class="pi pi-ellipsis-h"></i></button>
+        </div>
+      </div>
+      <br />
+      <div>
+        <p class="caption">{{ item.contentText }}</p>
+      </div>
+
+      <div class="like-comment d-flex justify-content-between">
+        <div>
+          <span>{{ item.likeCount }} likes</span>
+        </div>
+        <div>
+          <span>{{ item.comments.length }} comments</span>
+        </div>
+      </div>
+
+      <div
+        class="d-flex justify-content-around"
+        style="
+          border: 3px solid rgb(206 195 195);
+          border-width: 3px 0px 0px 0px;
+          padding-top: 15px;
+          margin: 10px;
+          margin-bottom: 0px;
+        "
+      >
+        <div>
+          <!-- <span>{{ item.likeCount }} likes</span> <br /> -->
+          <i
+            style="cursor: pointer"
+            [ngClass]="item.like == true ? 'likeIcon' : ''"
+            class="pi pi-thumbs-up-fill"
+          ></i
+          ><span>like</span>
+        </div>
+        <div>
+          <!-- <span>{{ item.comments.length }} comments</span> <br /> -->
+          <i style="cursor: pointer" class="pi pi-comments"></i
+          ><span>comment</span>
+        </div>
+        <div>
+          <!-- <span></span><br /> -->
+          <i style="cursor: pointer" class="pi pi-share-alt"></i
+          ><span>share</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

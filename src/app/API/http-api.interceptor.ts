@@ -11,6 +11,7 @@ import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class HttpApiInterceptor implements HttpInterceptor {
+  // headers:any
   constructor() {}
 
   intercept(
@@ -18,19 +19,16 @@ export class HttpApiInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
     // const token = this.auth.getToken();
-    const token =
-      'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QGdtYWlsLmNvb…jAxfQ.vcsOWPmC1rlvgX-adC7kz5Rn7eIMKRsicRm8V1ynomI';
-
-    let headers = request.headers;
-    // .set('client-id', environment.CLIENT_ID)
-    // .set('client-secret', environment.cLIENT_SECRET)
-    // .set('Authorization', 'Bearer ' + token);
+    const token = localStorage.getItem('accessToken');
+    let headers;
+    if (localStorage.getItem('accessToken')) {
+      headers = request.headers.set('Authorization', 'Bearer ' + token);
+    }
 
     const newRequest = request.clone({ headers });
     return next.handle(newRequest).pipe(
       catchError((error: HttpErrorResponse) => {
         let ErrorMessage = this.ErrorToaster(error);
-
         return throwError(ErrorMessage);
       })
     );

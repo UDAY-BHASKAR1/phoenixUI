@@ -1,20 +1,29 @@
-
-
-<div class="card">
+<div *ngFor="let user of allUsersData">
+  <div class="card">
     <div class="profile-username">
-        <div class="profile-div">
-          <img
-            class="profile-image"
-            src="https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg"
-            alt=""
-          />
-        </div>
-        <div class="profile-name">
-          <p class="user-font1">uday bhaskar</p>
-          <p class="user-font2">uday_4444</p>
-        </div>
-      
-      <div class="button">
-        <button pButton type="button" style="font-size: 1.3rem;">Follow</button>
+      <div class="profile-div">
+        <img
+          class="profile-image"
+          [src]="
+            user.profilePic ? user.profilePic : '../../../assets/default.png'
+          "
+        />
       </div>
+      <div class="profile-name">
+        <p class="user-font1">{{ user.firstName }} {{ user.lastName }}</p>
+        <p class="user-font2">{{ user.username }}</p>
+      </div>
+
+      <div class="button">
+        <button
+          pButton
+          type="button"
+          (click)="addFriend(user.id)"
+          style="font-size: 1.3rem"
+        >
+          {{ ButtonText }}
+        </button>
+      </div>
+    </div>
   </div>
+</div>

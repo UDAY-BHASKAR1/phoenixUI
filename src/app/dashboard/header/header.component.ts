@@ -25,7 +25,8 @@ export class HeaderComponent implements OnInit {
       post: this.postContentText,
     };
     this.dashboard.post(object).subscribe((res) => {
-      console.log(res);
+      this.postContentModelAction = false;
+      this.postContentText = '';
     });
   }
 }

@@ -25,16 +25,22 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if (!!localStorage.getItem('accessToken')) {
+      this.router.navigate(['/dashboard']);
+    }
+  }
   signIN() {
     console.log(this.loginForm.value);
     const data = {
       email: this.loginForm.value.email,
       password: this.loginForm.value.password,
     };
-    this.auth.signin(data).subscribe((res) => {
-      let data = res;
-      console.log(data, 'login');
+    this.auth.signin(data).subscribe((res: any) => {
+      let data = res.accessToken;
+      localStorage.setItem('accessToken', data);
+      localStorage.setItem('userData', JSON.stringify(res.userResponse));
+      this.router.navigate(['/dashboard']);
     });
   }
 }
