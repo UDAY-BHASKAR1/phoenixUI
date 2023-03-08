@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DashboardService } from 'src/app/shared/services/dashboard/dashboard.service';
 
 @Component({
@@ -10,7 +11,7 @@ export class HeaderComponent implements OnInit {
   postContentModelAction: boolean = false;
   postContentText: any;
   postLoader: boolean = false;
-  constructor(private dashboard: DashboardService) {}
+  constructor(private dashboard: DashboardService, private router: Router) {}
 
   ngOnInit(): void {}
   postContentClick() {
@@ -27,6 +28,14 @@ export class HeaderComponent implements OnInit {
     this.dashboard.post(object).subscribe((res) => {
       this.postContentModelAction = false;
       this.postContentText = '';
+      window.location.reload();
     });
+  }
+  navigateHome() {
+    this.router.navigate(['/dashboard']);
+  }
+  logout() {
+    this.router.navigate(['/auth']);
+    localStorage.clear();
   }
 }

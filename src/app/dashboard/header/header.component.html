@@ -9,11 +9,13 @@
           >
             <div style="text-align: center; margin-right: 250px">
               <h2
+                (click)="navigateHome()"
                 style="
                   color: rgb(255, 255, 255);
                   font-size: 33px;
                   margin: 0px;
                   font-family: 'Poppins', sans-serif;
+                  cursor: pointer;
                 "
               >
                 PHOENIX
@@ -33,14 +35,26 @@
                   class="pi pi-plus iconStyle"
                 ></i
               ></span>
-              <span class="headerIcons" [routerLink]="['/dashboard/home']"
+              <span
+                class="headerIcons"
+                routerLinkActive="activeLink"
+                [routerLink]="['/dashboard/home']"
                 ><i class="pi pi-home iconStyle"></i
               ></span>
-              <span class="headerIcons" [routerLink]="['/dashboard/users']"
+              <span
+                class="headerIcons"
+                routerLinkActive="activeLink"
+                [routerLink]="['/dashboard/users']"
                 ><i class="pi pi-users iconStyle"></i
               ></span>
-              <span class="headerIcons" [routerLink]="['/dashboard/profile']"
+              <span
+                class="headerIcons"
+                routerLinkActive="activeLink"
+                [routerLink]="['/dashboard/profile']"
                 ><i class="pi pi-th-large iconStyle"></i
+              ></span>
+              <span class="headerIcons" (click)="logout()"
+                ><i class="pi pi-sign-out iconStyle"></i
               ></span>
             </div>
           </div>

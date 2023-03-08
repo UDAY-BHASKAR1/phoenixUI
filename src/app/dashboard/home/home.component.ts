@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { DashboardService } from 'src/app/shared/services/dashboard/dashboard.service';
 
 @Component({
   selector: 'app-home',
@@ -7,14 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   data: any[] = [];
-  constructor() {}
+  constructor(private router: Router, private dashboard: DashboardService) {}
 
   ngOnInit(): void {
+    this.dashboard.followingPosts().subscribe((res) => {
+      console.log(res);
+    });
     this.data = [
       {
         firstName: 'vamsi',
         lastName: 'krishna',
         time: 'two weeks ago',
+        id: 2,
         userName: '',
         profilePic:
           'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885__480.jpg',
@@ -30,6 +36,7 @@ export class HomeComponent implements OnInit {
         lastName: 'babu',
         time: 'few minutes ago',
         userName: '',
+        id: 3,
         profilePic: null,
         contentText: 'uday working in progress...',
         contentImage: 'image.jpg',
@@ -39,5 +46,16 @@ export class HomeComponent implements OnInit {
         likeCount: 0,
       },
     ];
+  }
+  viewProfile() {
+    // this.router.navigate(['/dashboard/profile']);
+  }
+  likePost(id: any, like: any) {
+    var likeResponse = !like;
+    console.log(id, likeResponse);
+    let object = {
+      postid: 2,
+      likeRes: likeResponse,
+    };
   }
 }

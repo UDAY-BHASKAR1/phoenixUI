@@ -64,11 +64,18 @@
     width: 45px;
     border: none;
   }
-
-  .profile-view:hover{
-     background-color:#747373;
-  }
-  
   .likeIcon{
     color: blue;
   }
+  .cursor{
+    cursor: pointer;
+  }
+    ::ng-deep {
+      .p-overlaypanel .p-overlaypanel-content {
+        padding: 15px;
+      }
+  
+      .p-overlaypanel {
+        margin-top: -5px !important;
+      }
+    }

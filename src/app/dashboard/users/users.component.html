@@ -1,24 +1,26 @@
 <div *ngFor="let user of allUsersData">
   <div class="card">
-    <div class="profile-username">
-      <div class="profile-div">
+    <div class="profile-username" style="padding-left: 15px">
+      <div class="col-1 profile-div">
         <img
           class="profile-image"
           [src]="
-            user.profilePic ? user.profilePic : '../../../assets/default.png'
+            user.profilePic != 'null'
+              ? user.profilePic
+              : '../../../assets/default.png'
           "
         />
       </div>
-      <div class="profile-name">
+      <div class="col-8 profile-name">
         <p class="user-font1">{{ user.firstName }} {{ user.lastName }}</p>
-        <p class="user-font2">{{ user.username }}</p>
+        <p class="user-font2">{{ user.userName }}</p>
       </div>
 
-      <div class="button">
+      <div class="col-3 button" style="text-align: center">
         <button
           pButton
           type="button"
-          (click)="addFriend(user.id)"
+          (click)="addFriend(user.userId, user.following)"
           style="font-size: 1.3rem"
         >
           {{ ButtonText }}
@@ -26,4 +28,9 @@
       </div>
     </div>
   </div>
+</div>
+
+<div *ngIf="allUsersData.length == 0">
+  <br /><br /><br />
+  <h1 style="text-align: center">No Friends To Display</h1>
 </div>

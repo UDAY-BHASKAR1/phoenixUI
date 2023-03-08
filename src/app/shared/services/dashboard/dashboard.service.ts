@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 @Injectable({
@@ -24,15 +24,27 @@ export class DashboardService {
   }
 
   // Home & Profile
-  //  Like post
-  likePost(data: any) {
-    const url = this.baseURL + 'reaction/like';
-    return this.http.post(url, data);
+  // allposts
+  followingPosts() {
+    const url = this.baseURL + 'user/getAllFriendsPost';
+    return this.http.get(url);
   }
-  //dislike Post
-  dislikePost(data: any) {
-    const url = this.baseURL + 'reaction/dislike';
-    return this.http.post(url, data);
+  // userDetails
+  userDetails() {
+    const url = this.baseURL + 'profile';
+    return this.http.get(url);
+  }
+  // Individual user posts
+  userPosts() {
+    const url = this.baseURL + 'user/allPosts';
+    return this.http.get(url);
+  }
+  //  Like post
+  likePost(postId: any) {
+    let params = new HttpParams();
+    params = params.set('postId', postId);
+    const url = this.baseURL + 'user/toggleLike';
+    return this.http.put(url, params);
   }
 
   // for Comment
@@ -53,12 +65,15 @@ export class DashboardService {
   // following
   // add Friend
   addFriend(data: any) {
-    const url = this.baseURL + 'request/addfriend';
+    const url = this.baseURL + 'request/addFriend';
     return this.http.post(url, data);
   }
-  // un Friend
-  unFriend(data: any) {
-    const url = this.baseURL + 'request/unfriend';
-    return this.http.post(url, data);
+
+  // deletePost
+  deletePost(postId: any) {
+    let params = new HttpParams();
+    params = params.set('postId', postId);
+    const url = this.baseURL + 'user/post/delete';
+    return this.http.delete(url, { params });
   }
 }

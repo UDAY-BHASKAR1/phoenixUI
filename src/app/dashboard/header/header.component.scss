@@ -109,3 +109,9 @@
     box-shadow: none;
   }
 }
+.activeLink{
+  color:#81ff57;
+}
+:focus-visible {
+  outline: -webkit-focus-ring-color auto 0px;
+}

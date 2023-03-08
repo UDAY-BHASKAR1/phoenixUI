@@ -1,5 +1,4 @@
-<div *ngFor="let item of data">
-  <br />
+<div style="padding-top: 12px" *ngFor="let item of data">
   <div class="card">
     <div class="d-flex bd-highlight mb-3">
       <div class="p-2 bd-highlight">
@@ -18,9 +17,23 @@
         <p class="time">{{ item.time }}</p>
       </div>
       <div class="ms-auto p-2 bd-highlight">
-        <button class="profile-view"><i class="pi pi-ellipsis-h"></i></button>
+        <button (click)="op.toggle($event)" class="profile-view">
+          <i class="pi pi-ellipsis-h"></i>
+        </button>
+        <p-overlayPanel #op [dismissable]="true">
+          <ng-template pTemplate>
+            <span
+              (click)="viewProfile()"
+              style="font-size: 18px; font-family: poppins; color: black"
+              class="cursor"
+            >
+              View Profile
+            </span>
+          </ng-template>
+        </p-overlayPanel>
       </div>
     </div>
+    <br />
     <div>
       <p class="caption">{{ item.contentText }}</p>
     </div>
@@ -38,15 +51,15 @@
     <div class="d-flex justify-content-around">
       <div>
         <i
+          (click)="likePost(item.id, item.like)"
           style="cursor: pointer"
           [ngClass]="item.like == true ? 'likeIcon' : ''"
           class="pi pi-thumbs-up-fill"
         ></i
         ><span>like</span>
       </div>
-      <div>
-        <i style="cursor: pointer" class="pi pi-comments"></i
-        ><span>comment</span>
+      <div style="cursor: pointer">
+        <i class="pi pi-comments"></i><span>comment</span>
       </div>
       <div>
         <i style="cursor: pointer" class="pi pi-share-alt"></i
@@ -54,4 +67,9 @@
       </div>
     </div>
   </div>
+</div>
+
+<div *ngIf="data.length == 0">
+  <br /><br /><br />
+  <h1 style="text-align: center">NO POSTS TO DISPLAY</h1>
 </div>

@@ -7,7 +7,7 @@
         width="150px"
         height="150px"
         [src]="
-          userData.profilePic
+          userData.profilePic != null
             ? userData.profilePic
             : '../../../assets/default.png'
         "
@@ -38,11 +38,11 @@
       "
     >
       <div class="col-3">
-        <span>{{ userData.postsCount }}</span> <br />
+        <span>{{ userData.postCOUNT }}</span> <br />
         <span>posts</span>
       </div>
       <div class="col-3">
-        <span>{{ userData.followersCount }}</span> <br />
+        <span>{{ userData.followerCount }}</span> <br />
         <span>Followers</span>
       </div>
       <div class="col-3">
@@ -59,26 +59,39 @@
       <div class="d-flex bd-highlight mb-3">
         <div class="p-2 bd-highlight">
           <img
-            class="profile-img cursor"
+            class="profile-img"
             [src]="
-              item.profilePic ? item.profilePic : '../../../assets/default.png'
+              item.profilePic != 'null'
+                ? item.profilePic
+                : '../../../assets/default.png'
             "
           />
         </div>
         <div class="p-2 bd-highlight">
-          <p class="name cursor">
+          <p class="name">
             {{ item.firstName }} {{ item.lastName
             }}<span *ngIf="item.sharedPost == true">shared this post</span>
           </p>
-          <p class="time">{{ item.time }}</p>
+          <p class="time">
+            {{ item.localDate | date : "MMM d, y, h:mm:ss a" }}
+          </p>
         </div>
         <div class="ms-auto p-2 bd-highlight">
-          <button class="profile-view"><i class="pi pi-ellipsis-h"></i></button>
+          <button class="profile-view" (click)="op.toggle($event)">
+            <i class="pi pi-ellipsis-h"></i>
+          </button>
+          <p-overlayPanel #op [dismissable]="true">
+            <ng-template pTemplate>
+              <span (click)="deletePost(item.postId)" class="deletePost cursor">
+                Delete Post
+              </span>
+            </ng-template>
+          </p-overlayPanel>
         </div>
       </div>
       <br />
       <div>
-        <p class="caption">{{ item.contentText }}</p>
+        <p class="caption">{{ item.post }}</p>
       </div>
 
       <div class="like-comment d-flex justify-content-between">
@@ -86,7 +99,7 @@
           <span>{{ item.likeCount }} likes</span>
         </div>
         <div>
-          <span>{{ item.comments.length }} comments</span>
+          <span>{{ item.commentCount }} comments</span>
         </div>
       </div>
 
@@ -106,6 +119,7 @@
             style="cursor: pointer"
             [ngClass]="item.like == true ? 'likeIcon' : ''"
             class="pi pi-thumbs-up-fill"
+            (click)="likePost(item.postId)"
           ></i
           ><span>like</span>
         </div>
@@ -122,4 +136,9 @@
       </div>
     </div>
   </div>
+</div>
+
+<div *ngIf="postsData.length == 0">
+  <br /><br /><br />
+  <h2 style="text-align: center">NO POSTS TO DISPLAY</h2>
 </div>

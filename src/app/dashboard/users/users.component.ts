@@ -18,13 +18,16 @@ export class UsersComponent implements OnInit {
     });
   }
 
-  addFriend(id: number) {
+  addFriend(id: number, follow: any) {
+    console.log(follow);
+    let followingAction = !follow;
     let dataObject = {
       userId: id,
+      follow: followingAction,
     };
     this.dashboard.addFriend(dataObject).subscribe((res) => {
       console.log(res);
-      this.ButtonText = 'Unfollow';
+      // this.ButtonText = 'Unfollow';
     });
   }
 }

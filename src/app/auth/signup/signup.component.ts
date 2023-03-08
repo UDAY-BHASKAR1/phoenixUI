@@ -7,6 +7,7 @@ import {
   MinLengthValidator,
   AbstractControl,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth-service/auth.service';
 @Component({
   selector: 'app-signup',
@@ -15,7 +16,11 @@ import { AuthService } from 'src/app/shared/services/auth-service/auth.service';
 })
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
-  constructor(private Builder: FormBuilder, private auth: AuthService) {
+  constructor(
+    private Builder: FormBuilder,
+    private auth: AuthService,
+    private router: Router
+  ) {
     this.signupForm = this.Builder.group({
       firstName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
@@ -55,6 +60,7 @@ export class SignupComponent implements OnInit {
     this.auth.signup(formData).subscribe((res) => {
       alert('signup');
       console.log(res);
+      this.router.navigate(['/auth/login']);
     });
   }
 }
